@@ -8,13 +8,17 @@ import { HomeComponent } from './pages/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/header/header.component';
+import { ContasComponent } from './pages/contas/contas.component';
+import { CadastrarEditarComponent } from './pages/clientes/cadastrar/cadastrar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ClientesComponent,
     HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    ContasComponent,
+    CadastrarEditarComponent
   ],
   imports: [
     BrowserModule,

@@ -18,6 +18,8 @@ export class ClientesComponent implements OnInit {
   buscarTodosClientes() {
     this.clienteService.listarTodosClientes().subscribe((clientes: ICliente[]) => {
       this.clientes = clientes;
+    }, (error) => {
+      console.error(error);
     });
   }
 

@@ -16,4 +16,16 @@ export class ClientesService {
   listarTodosClientes() {
     return this.http.get<ICliente[]>(`${this.api}/${this.endpoint}`);
   }
+
+  cadastrarCliente(cliente: ICliente) {
+    return this.http.post(`${this.api}/${this.endpoint}`, cliente);
+  }
+
+  atualizarCliente(cliente: ICliente) {
+    return this.http.put(`${this.api}/${this.endpoint}/${cliente.id}`, cliente);
+  }
+
+  buscarClientePorId(id: number) {
+    return this.http.get<ICliente>(`${this.api}/${this.endpoint}/${id}`);
+  }
 }
