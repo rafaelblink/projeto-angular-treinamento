@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ICliente } from 'src/app/interfaces/cliente';
 import { AlertasService } from 'src/app/services/alertas.service';
 import { ClientesService } from 'src/app/services/clientes.service';
@@ -16,7 +16,8 @@ export class CadastrarEditarComponent implements OnInit {
   constructor(
     private clientesService: ClientesService,
     private route: ActivatedRoute,
-    private alertaService: AlertasService
+    private alertaService: AlertasService,
+    private router: Router
     ) { }
 
   idCliente = 0;
@@ -52,13 +53,15 @@ export class CadastrarEditarComponent implements OnInit {
       cliente.id = this.idCliente;
       this.clientesService.atualizarCliente(cliente).subscribe(() => {
         this.alertaService.alertaSucesso('MUITO BOM, PARABENS, EDITADO');
+        this.router.navigateByUrl('/clientes');
       })
       return;
     }
 
     cliente.ativo = true;
     this.clientesService.cadastrarCliente(cliente).subscribe(() => {
-      alert('SUCESSO!!!!!!');
+      this.alertaService.alertaSucesso('MUITO BOM, PARABENS, CADASTRADO');
+      this.router.navigateByUrl('/clientes');
     }, (error) => {
       console.error(error);
     });

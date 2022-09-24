@@ -34,7 +34,7 @@
               </button>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" routerLink="/clientes/editar/{{cliente.id}}">Editar</a></li>
-                <li><a class="dropdown-item" href="#">Excluir</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0)" (click)="excluir(cliente.id)">Excluir</a></li>
               </ul>
             </div>
           </td>

@@ -28,4 +28,9 @@ export class ClientesService {
   buscarClientePorId(id: number) {
     return this.http.get<ICliente>(`${this.api}/${this.endpoint}/${id}`);
   }
+
+  excluirClientePorId(id: number) {
+    return this.http.delete(`${this.api}/${this.endpoint}/${id}`);
+  }
+
 }
